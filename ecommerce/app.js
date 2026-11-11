@@ -4,6 +4,7 @@ const path = require("path");
 
 const authRoutes = require("./routes/auth");
 const productRoutes = require("./routes/products");
+const adminRoutes = require("./routes/admin");
 
 const app = express();
 
@@ -14,7 +15,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/product", productRoutes);
-
+app.use("/api/admin", adminRoutes);
 
 // Serve HTML pages
 app.get("/", (req, res) => {
