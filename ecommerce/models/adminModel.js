@@ -10,9 +10,18 @@ const getSaleOrderSummary = async (
   sortBy,
   groupBy
 ) => {
-  // TODO: get_sale_order_summary
+
   const result = await query(
-    `TODO: SELECT * FROM get_sale_order_summary(...)`,
+    `SELECT * FROM get_sale_order_summary(
+      $1::date,
+      $2::date,
+      $3::char,
+      $4::varchar,
+      $5::varchar,
+      $6::varchar,
+      $7::varchar,
+      $8::varchar
+    )`,
     [startDate, endDate, gender, productCategory, ageGroup, status, sortBy, groupBy]
   );
   return result.rows;
